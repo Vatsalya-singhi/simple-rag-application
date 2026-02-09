@@ -6,13 +6,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from get_embedding_function import get_embedding_function
 
-DATA_PATH = "data_sources"
+DATA_PATH = "data_sources/books"
 CHROMA_PATH = "chroma"
 
 
 def load_documents():
     "Load PDF documents from a folder."
-    loader = DirectoryLoader(DATA_PATH, glob="*.pdf")
+    loader = DirectoryLoader(DATA_PATH,
+                             recursive=True, show_progress=True)
     documents = loader.load()
     return documents
 
