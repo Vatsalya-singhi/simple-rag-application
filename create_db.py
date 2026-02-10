@@ -4,7 +4,7 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
-from get_embedding_function import get_embedding_function
+from shared.get_embedding_function import get_embedding_function
 
 DATA_PATH = "data_sources/books"
 CHROMA_PATH = "chroma"

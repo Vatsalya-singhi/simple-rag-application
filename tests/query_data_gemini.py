@@ -1,11 +1,12 @@
-from langchain_google_genai import GoogleGenerativeAI
-from langchain_core.prompts import ChatPromptTemplate
-from get_embedding_function import get_embedding_function
-from langchain_community.vectorstores import Chroma
-import os
 import argparse
-from dotenv import load_dotenv
-load_dotenv(dotenv_path='.env')
+import os
+
+from langchain_community.vectorstores import Chroma
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_google_genai import GoogleGenerativeAI
+
+import shared.config
+from shared.get_embedding_function import get_embedding_function
 
 CHROMA_PATH = "chroma"
 

@@ -1,8 +1,9 @@
 import os
-from dotenv import load_dotenv
-from query_data_gemini import query_rag
+
 from langchain_google_genai import GoogleGenerativeAI
-load_dotenv(dotenv_path='.env')
+
+import shared.config
+from tests.query_data_gemini import query_rag
 
 EVAL_PROMPT = """
 Expected Response: {expected_response}
