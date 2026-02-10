@@ -60,13 +60,10 @@ def call_model_with_tools(state) -> dict:
     # Invoke the agent
     response = agent.invoke(agent_input)
 
-    print("Agent raw response:", response)
-    # Extract the final answer from the response messages
-    last_message = response["messages"][-1]
-    answer_text = last_message.content if hasattr(
-        last_message, 'content') else str(last_message)
-
-    print("Agent Response:", answer_text)
+    messages = response["messages"]
+    last_ai = next(m for m in reversed(messages)
+                   if getattr(m, "type", None) == "ai")
+    answer_text = last_ai.text
 
     return {
         "messages": response["messages"],
