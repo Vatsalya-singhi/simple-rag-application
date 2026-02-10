@@ -7,7 +7,7 @@ gpt4all==2.8.2
 unstructured[pdf]==0.18.31
 unstructured[md]==0.18.31
 langchain-google-genai==4.2.0
-pytest=9.0.2
-pysqlite3=0.6.0
-streamlit=1.54.0
-langgraph=1.0.8
+pytest==9.0.2
+pysqlite3==0.6.0
+streamlit==1.54.0
+langgraph==1.0.8

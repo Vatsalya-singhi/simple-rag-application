@@ -12,8 +12,8 @@ A Python-based Retrieval-Augmented Generation (RAG) application that combines AI
 ### RAG Capabilities
 
 - **Multi-Book Knowledge Base**: Trained on two classic literary works:
-  - *Alice's Adventures in Wonderland* by Lewis Carroll
-  - *A Song of Ice and Fire* by George R.R. Martin
+  - _Alice's Adventures in Wonderland_ by Lewis Carroll
+  - _A Song of Ice and Fire_ by George R.R. Martin
 - **Semantic Search**: Uses GPT4All embeddings for efficient local vector storage and retrieval
 - **Contextual Responses**: Powered by Google's Generative AI (ChatGoogleGenerativeAI) for intelligent answer generation
 
@@ -99,8 +99,8 @@ pip install -r requirements.txt
 3. Set up your environment variables:
    Create a `.env` file in the project root and add your Google API key:
 
-```
-GOOGLE_API_KEY=your_api_key_here
+```bash
+GEMINI_API_KEY=your_api_key_here
 ```
 
 ### Database Setup
@@ -125,6 +125,53 @@ Launch the application to start the interactive recommendation loop:
 
 ```bash
 streamlit run main.py
+```
+
+## 🐳 Running with Docker
+
+You can run the entire application using Docker without installing Python or dependencies locally.
+
+### Prerequisites
+
+- Docker installed - https://docs.docker.com/get-docker/
+- A `.env` file with your Google API key
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+### Build the Docker Image
+
+From the project root, build the Docker image:
+
+```bash
+docker build -t my-streamlit-app .
+```
+
+### Run the Application
+
+Run the container and expose Streamlit on port 8501:
+
+```bash
+docker run --env-file .env -p 8501:8501 my-streamlit-app
+```
+
+### Access the Application
+
+Once the container is running, open your browser and navigate to:
+
+```bash
+http://localhost:8501
+```
+
+### Notes
+
+- The .env file is passed to the container using --env-file
+- If you add new books or update embeddings, rebuild the vector database and Docker image
+- To force a clean rebuild:
+
+```bash
+docker build --no-cache -t my-streamlit-app .
 ```
 
 ### Interacting with the Application
@@ -167,7 +214,7 @@ simple-rag-application/
 - **LLM**: ChatGoogleGenerativeAI (Google's Generative AI)
 - **Embeddings**: GPT4AllEmbeddings (local embeddings model)
 - **Framework**: LangChain
-- **Vector Store**: Chroma/FAISS (for document storage and retrieval)
+- **Vector Store**: ChromaDB (for document storage and retrieval)
 - **Agent Framework**: LangChain Agents with custom tools
 
 ## 🔧 Configuration
@@ -211,6 +258,8 @@ This project is open source and available under the [MIT License](LICENSE).
 - The application currently uses local embeddings which may have limitations in semantic understanding compared to cloud-based solutions
 - Agent tools are currently configured with mock data for demonstration purposes
 - Large documents may require significant memory for embedding generation
+- The Query Router design is based on key word selection.
+- The results can be fine tuned for better overall results.
 
 ## 🔮 Future Enhancements
 

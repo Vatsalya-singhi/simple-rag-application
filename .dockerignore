@@ -1,0 +1,57 @@
+# Do not send secrets or local config
+.env
+*.env
+.envrc
+
+# Git and VCS
+.git
+.gitignore
+.gitattributes
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Test and coverage outputs
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Virtual environments
+.venv
+venv/
+venv*/
+env/
+env*/
+.conda
+*.sqlite3
+
+# IDE/editor config
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter and notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Large or local-only folders (uncomment if present in your project)
+# data/
+# logs/
+# tmp/
+# media/
